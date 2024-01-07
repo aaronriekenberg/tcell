@@ -1076,6 +1076,11 @@ func (s *cScreen) resize() {
 		return
 	}
 
+	// Ignore resize if the console dimensions are invalid.
+	if s.w == 0 || s.h == 0 {
+		return
+	}
+
 	s.cells.Resize(w, h)
 	s.w = w
 	s.h = h
